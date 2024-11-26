@@ -20,7 +20,7 @@ const verifyToken = (req, res, next) => {
 };
 
 // Protected route
-router.get('/profile', verifyToken, (req, res) => {
+router.get('/protected', verifyToken, (req, res) => {
     res.json({ message: `Hello, user with ID: ${req.userId}` });
 });
 
