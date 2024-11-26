@@ -24,7 +24,8 @@ const LoginPage = () => {
 
             navigate('/home'); // Redirect to profile or dashboard after successful login
         } catch (err) {
-            setError('Invalid credentials, please try again.');
+            setError(err.response?.data?.message || 'Something went wrong, please try again.');
+
         }
     };
 

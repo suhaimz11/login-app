@@ -1,30 +1,32 @@
+// src/components/SignupPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
 const SignupPage = () => {
-    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');  // State for confirm password
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        // Check if passwords match
         if (password !== confirmPassword) {
-            alert('Passwords do not match!');
+            setMessage('Passwords do not match');
             return;
         }
 
         try {
             const response = await axios.post('http://localhost:5000/api/signup', {
-                username,
                 email,
+                username,
                 password,
             });
-            console.log(response.data); // Handle the response from the backend (e.g., success message, etc.)
+
+            setMessage(response.data.message || 'Signup successful!');
         } catch (error) {
-            console.error('Error signing up:', error);
+            setMessage(error.response?.data?.message || 'Error signing up');
         }
     };
 
@@ -33,20 +35,20 @@ const SignupPage = () => {
             <h2>Sign Up</h2>
             <form onSubmit={handleSignup}>
                 <div>
-                    <label>Username</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
                     <label>Email</label>
                     <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         required
                     />
                 </div>
@@ -70,6 +72,7 @@ const SignupPage = () => {
                 </div>
                 <button type="submit">Sign Up</button>
             </form>
+            <p>{message}</p>
         </div>
     );
 };
