@@ -1,0 +1,118 @@
+/* SignupPage.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #121212; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #e0e0e0; /* Light text color */
+}
+
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.signup-card {
+    background: #1e1e1e; /* Dark card background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center;
+}
+
+.signup-card h2 {
+    margin-bottom: 20px;
+    color: #ffffff; /* Bright header color */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #b3b3b3; /* Muted label color */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #262626; /* Dark input background */
+    color: #e0e0e0;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #4caf50; /* Green focus border */
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.password-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 1px; /* Increased to move the icon to the right */
+    top: 70%; /* Vertically centers the icon */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #b3b3b3;
+    font-size: 18px;
+}
+
+.eye-icon:hover {
+    color: #4caf50; /* Icon hover color */
+}
+
+.signup-button {
+    background: #4caf50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.signup-button:hover {
+    background: #45a049;
+}
+
+.signup-message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.signup-message.error {
+    color: #ff5252; /* Error message in red */
+}
+
+.signup-message.success {
+    color: #4caf50; /* Success message in green */
+}
+
+/* Add a smooth animation */
+input,
+button {
+    transition: background 0.3s, color 0.3s, border 0.3s;
+}
