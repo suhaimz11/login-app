@@ -7,6 +7,7 @@ const cors = require('cors');
 const signupRoutes = require('./routes/signup'); // Signup routes
 const loginRoutes = require('./routes/login');   // Login routes
 const protectedRoutes = require('./routes/protected'); // Protected routes
+const profileRoutes = require('./routes/profile'); // Profile routes
 
 // Initialize dotenv for environment variables
 dotenv.config();
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use('/api/signup', signupRoutes);  // Routes for signup
 app.use('/api/login', loginRoutes);    // Routes for login
 app.use('/api', protectedRoutes);      // Routes for protected endpoints
+app.use('/api', profileRoutes);        // Profile route
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -32,7 +34,6 @@ mongoose.connect(process.env.MONGODB_URI)
         console.error('MongoDB connection error:', err.message);
         process.exit(1); // Exit the process on connection failure
     });
-
 
 // Define the server port
 const PORT = process.env.PORT || 5000;

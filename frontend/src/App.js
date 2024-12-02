@@ -6,7 +6,7 @@ import SignupPage from './components/SignupPage';  // Ensure the import is corre
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />  {/* Set LoginPage as default */}
+      <Route path="/login" element={<LoginPage />} />  {/* Set LoginPage as default */}
       <Route path="/home" element={<Home />} />   {/* Optionally, add a Home route */}
       <Route path="/signup" element={<SignupPage />} /> 
     </Routes>
